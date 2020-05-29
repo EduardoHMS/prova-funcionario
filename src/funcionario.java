@@ -9,13 +9,16 @@ public class funcionario {
 		Scanner sc = new Scanner(System.in);
 		
 		// VARIAVEIS //
-		String nome;
+		String nome, nomeGuardar;
+		nomeGuardar = " ";
 		int horasTrabalhadas, opcaoMenu, totalHoras;
 		totalHoras = 0;
 		horasTrabalhadas = 0;
-		double valorHora, custoTotal;
+		double valorHora, custoTotal, custoIndividual, guardar;
 		valorHora = 0.0;
 		custoTotal = 0.0;
+		custoIndividual = 0.0;
+		guardar = 0.0;
 		char opcao;
 		
 		boolean boleana = true;
@@ -49,6 +52,11 @@ public class funcionario {
 			// TRATATIVAS //
 			totalHoras = totalHoras + horasTrabalhadas;
 			custoTotal = custoTotal + (horasTrabalhadas * valorHora);
+			custoIndividual = horasTrabalhadas * valorHora;
+			if(custoIndividual > guardar) {
+				guardar = custoIndividual;
+				nomeGuardar = nome;
+			}
 		}
 		
 		boolean boleanMenu = true;
@@ -69,6 +77,9 @@ public class funcionario {
 			}else if(opcaoMenu == 2) {
 				System.out.println(" ");
 				System.out.printf("Custo total = R$ %.2f%n", custoTotal);
+			}else if(opcaoMenu == 3) {
+				System.out.println(" ");
+				System.out.println("Pessoa que ganhou mais: "+ nomeGuardar);
 			}
 		}
 		
