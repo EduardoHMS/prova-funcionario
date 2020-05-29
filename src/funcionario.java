@@ -10,9 +10,12 @@ public class funcionario {
 		
 		// VARIAVEIS //
 		String nome;
-		int horasTrabalhadas, opcaoMenu;
+		int horasTrabalhadas, opcaoMenu, totalHoras;
+		totalHoras = 0;
 		horasTrabalhadas = 0;
-		double valorHora = 0.0;
+		double valorHora, custoTotal;
+		valorHora = 0.0;
+		custoTotal = 0.0;
 		char opcao;
 		
 		boolean boleana = true;
@@ -42,6 +45,10 @@ public class funcionario {
 			}else if(opcao == 'n') {
 				boleana = false;
 			}
+			
+			// TRATATIVAS //
+			totalHoras = totalHoras + horasTrabalhadas;
+			custoTotal = custoTotal + (horasTrabalhadas * valorHora);
 		}
 		
 		boolean boleanMenu = true;
@@ -56,6 +63,12 @@ public class funcionario {
 			
 			if(opcaoMenu == 4) {
 				boleanMenu = false;
+			}else if(opcaoMenu == 1) {
+				System.out.println(" ");
+				System.out.println("Total de horas = " + totalHoras);
+			}else if(opcaoMenu == 2) {
+				System.out.println(" ");
+				System.out.printf("Custo total = R$ %.2f%n", custoTotal);
 			}
 		}
 		
